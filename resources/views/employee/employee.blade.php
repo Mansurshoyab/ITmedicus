@@ -8,9 +8,9 @@
         <div class="col-md-12">
             <div class="ibox">
                 <div>
-                    {{-- @if (Session::get('message'))
+                    @if (Session::get('message'))
                         <p class="alert alert-success">{{ Session::get('message') }}</p>
-                    @endif --}}
+                    @endif
                 </div>
                 <div class="ibox-head">
                     <div class="ibox-title"> Employee </div>
@@ -21,41 +21,45 @@
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label> Name : </label>
-                                <input name="name" type="text" class="form-control">
-                                {{-- <div class="text-danger">
-                                    @error('philosophy')
+                                <input name="name" type="text" class="form-control" placeholder="Enter Employee Name">
+                                <div class="text-danger">
+                                    @error('name')
                                         <strong class="font-weight-bold">{{ $message }}</strong>
                                     @enderror
-                                </div> --}}
+                                </div>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label> Company : </label>
-                                <input name="company" type="text" class="form-control">
-                                {{-- <div class="text-danger">
-                                    @error('philosophy')
+                                <select name="company_id" id="" class="form-control">
+                                    @foreach ($company as $company)
+                                    <option value="{{ $company->id }}">{{ $company->name }}</option>
+                                @endforeach
+                                </select>
+                                <div class="text-danger">
+                                    @error('company_id')
                                         <strong class="font-weight-bold">{{ $message }}</strong>
                                     @enderror
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label> Email : </label>
-                                <input name="email" type="email" class="form-control">
-                                {{-- <div class="text-danger">
-                                    @error('philosophy')
+                                <input name="email" type="email" class="form-control" placeholder="Enter Employee Email">
+                                <div class="text-danger">
+                                    @error('email')
                                         <strong class="font-weight-bold">{{ $message }}</strong>
                                     @enderror
-                                </div> --}}
+                                </div>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label> Phone : </label>
-                                <input name="phone" type="text" class="form-control">
-                                {{-- <div class="text-danger">
-                                    @error('philosophy')
+                                <input name="phone" type="text" class="form-control" placeholder="Enter Employee Phone">
+                                <div class="text-danger">
+                                    @error('phone')
                                         <strong class="font-weight-bold">{{ $message }}</strong>
                                     @enderror
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -77,12 +81,15 @@
                                        </tr>
                                    </thead>
                                    <tbody>
-                                       {{-- @foreach ($philosophys as $philosophy)
+                                       @foreach ($employees as $employee)
                                        <tr>
-                                           <td>{{ $philosophy->philosophy }}</td>
+                                           <td>{{ $employee->name }}</td>
+                                           <td>{{ $employee->company->name }}</td>
+                                           <td>{{ $employee->email }}</td>
+                                           <td>{{ $employee->phone }}</td>
                                            <td class="action"> 
-                                               <a href="{{ route('philosophy.edit', $philosophy->id) }}" class="btn btn-default btn-sm float-left mr-3"><i class="fa fa-edit" aria-hidden="true"></i> Edit </a>
-                                               <form action="{{  route('philosophy.destroy', $philosophy->id) }}" method="POST">
+                                               <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-default btn-sm float-left mr-3"><i class="fa fa-edit" aria-hidden="true"></i> Edit </a>
+                                               <form action="{{  route('employee.destroy', $employee->id) }}" method="POST">
                                                    @csrf
                                                    @method('delete')
                                                    <button type="submit" id="delete" class="btn btn-danger btn-sm float-left">
@@ -91,7 +98,7 @@
                                                </form>
                                            </td>
                                        </tr>
-                                       @endforeach --}}
+                                       @endforeach
                                    </tbody>
                                </table>
                            </div>

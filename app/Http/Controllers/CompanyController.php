@@ -31,6 +31,15 @@ class CompanyController extends Controller
 
     public function store(StoreCompanyRequest $request)
         {
+            //Validation Option
+            $request->validate([
+                'name' => 'required|string|max:50',
+                'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'email' => 'nullable|string|max:50',
+                'website' => 'nullable|string|max:50',
+            ]);
+
+            //Data Store
             if ($request->hasFile('logo')) {
                 // Image Name
                 $fileName = time() . "-" . $request->file('logo')->getClientOriginalName();
@@ -69,6 +78,14 @@ class CompanyController extends Controller
 
     public function update(UpdateCompanyRequest $request, Company $company)
         {
+            //Validation Option
+            $request->validate([
+                'name' => 'required|string|max:50',
+                'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'email' => 'nullable|string|max:50',
+                'website' => 'nullable|string|max:50',
+            ]);
+
             if ($request->hasFile('logo')) {
                 // Delete Existing Image
                 $filePath = public_path('_uploads/' . $company->logo);

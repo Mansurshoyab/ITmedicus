@@ -24,18 +24,33 @@
                                 <div class="col-sm-12 form-group">
                                     <label for="">Name : </label>
                                     <input type="text" value="{{ $company->name }}" name="name"  class="form-control" placeholder="Enter Award Title">
+                                    <div class="text-danger">
+                                        @error('name')
+                                            <strong class="font-weight-bold">{{ $message }}</strong>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="col-sm-12 form-group">
                                     <label for="">Email : </label>
                                     <input type="email" value="{{ $company->email }}" name="email"  class="form-control" placeholder="Enter Award Title">
+                                    <div class="text-danger">
+                                        @error('email')
+                                            <strong class="font-weight-bold">{{ $message }}</strong>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="col-sm-12 form-group">
                                     <label for="">Name : </label>
                                     <input type="text" value="{{ $company->website }}" name="website" class="form-control" placeholder="Enter Award Title">
+                                    <div class="text-danger">
+                                        @error('website')
+                                            <strong class="font-weight-bold">{{ $message }}</strong>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>
