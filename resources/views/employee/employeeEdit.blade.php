@@ -7,11 +7,6 @@
     <div class="row">
         <div class="col-md-12">
             <div class="ibox">
-                <div>
-                    @if (Session::get('message'))
-                        <p class="alert alert-success">{{ Session::get('message') }}</p>
-                    @endif
-                </div>
                 <div class="ibox-head">
                     <div class="ibox-title"> Employee </div>
                 </div>

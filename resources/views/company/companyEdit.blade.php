@@ -7,11 +7,6 @@
     <div class="row">
         <div class="col-md-12">
             <div class="ibox">
-                <div>
-                    @if (Session::get('message'))
-                        <p class="alert alert-success">{{ Session::get('message') }}</p>
-                    @endif
-                </div>
                 <div class="ibox-head">
                     <div class="ibox-title">Company </div>
                 </div>
@@ -23,7 +18,7 @@
                             <div class="col-sm-4">
                                 <div class="col-sm-12 form-group">
                                     <label for="">Name : </label>
-                                    <input type="text" value="{{ $company->name }}" name="name"  class="form-control" placeholder="Enter Award Title">
+                                    <input type="text" value="{{ $company->name }}" name="name"  class="form-control">
                                     <div class="text-danger">
                                         @error('name')
                                             <strong class="font-weight-bold">{{ $message }}</strong>
@@ -34,7 +29,7 @@
                             <div class="col-sm-4">
                                 <div class="col-sm-12 form-group">
                                     <label for="">Email : </label>
-                                    <input type="email" value="{{ $company->email }}" name="email"  class="form-control" placeholder="Enter Award Title">
+                                    <input type="email" value="{{ $company->email }}" name="email"  class="form-control">
                                     <div class="text-danger">
                                         @error('email')
                                             <strong class="font-weight-bold">{{ $message }}</strong>
@@ -45,7 +40,7 @@
                             <div class="col-sm-4">
                                 <div class="col-sm-12 form-group">
                                     <label for="">Name : </label>
-                                    <input type="text" value="{{ $company->website }}" name="website" class="form-control" placeholder="Enter Award Title">
+                                    <input type="text" value="{{ $company->website }}" name="website" class="form-control" >
                                     <div class="text-danger">
                                         @error('website')
                                             <strong class="font-weight-bold">{{ $message }}</strong>
