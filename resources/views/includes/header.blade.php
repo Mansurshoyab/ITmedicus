@@ -2,7 +2,7 @@
         <header class="header">
             <div class="page-brand">
                 <a class="link" href="{{ url('admin/dashboard') }}">
-                    <span class="brand">Lakdhanavi Ltd
+                    <span class="brand">ITmedicus
                     </span>
                     <span class="brand-mini">AC</span>
                 </a>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <ul class="side-menu metismenu">
-                    <li>
+                    {{-- <li>
                         <a class="active" href="{{ url('admin/dashboard') }}"><i class="sidebar-item-icon fa fa-th-large"></i>
                             <span class="nav-label">Home</span>
                         </a>
@@ -120,13 +120,18 @@
                                 <a href="{{ url('admin/service/serviceImage') }}"> Service Image </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href="{{ url('admin/contact/contacts') }}"><i class="sidebar-item-icon fa fa-smile-o"></i>
-                            <span class="nav-label"> Contact Us </span>
+                        <a href="{{ url('company') }}"><i class="sidebar-item-icon fa fa-smile-o"></i>
+                            <span class="nav-label"> Companies </span>
                         </a>
                     </li>
                     <li>
+                        <a href="{{ url('employee') }}"><i class="sidebar-item-icon fa fa-smile-o"></i>
+                            <span class="nav-label"> Employee </span>
+                        </a>
+                    </li>
+                    {{-- <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
                             <span class="nav-label"> Footer </span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
@@ -137,7 +142,7 @@
                                 <a href="{{ url('admin/footer/subsidiary') }}"> Add Subsidiaries </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </nav>

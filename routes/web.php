@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// Route::get('company', function (){
+//     return view('company.company');
+// });
+
+Route::group(['prefix' => '/'], function(){
+    Route::resource('company', CompanyController::class);
+});
+
+Route::get('employee', function (){
+    return view('employee.employee');
 });

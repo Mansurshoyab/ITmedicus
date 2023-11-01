@@ -24,12 +24,12 @@
 <body class="fixed-navbar">
     <div class="page-wrapper">
         <!-- START HEADER-->
-        @include('admin.includes.header')
+        @include('includes.header')
         
         <div class="content-wrapper">
             @yield('body')
 
-            @include('admin.includes.footer')
+            @include('includes.footer')
         </div>
     </div>
 
