@@ -86,6 +86,6 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return back()->with('message', 'Employee Deleted');
+        return back()->with('delete-message', 'Employee Deleted');
     }
 }

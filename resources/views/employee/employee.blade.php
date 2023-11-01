@@ -8,8 +8,10 @@
         <div class="col-md-12">
             <div class="ibox">
                 <div>
-                    @if (Session::get('message'))
+                    @if (Session::has('message'))
                         <p class="alert alert-success">{{ Session::get('message') }}</p>
+                    @elseif (Session::has('delete-message'))
+                        <p class="alert alert-danger">{{ Session::get('delete-message') }}</p>
                     @endif
                 </div>
                 <div class="ibox-head">

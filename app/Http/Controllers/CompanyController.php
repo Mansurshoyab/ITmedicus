@@ -116,6 +116,6 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         $company->delete();
-        return back()->with('message', 'Company Deleted');
+        return back()->with('delete-message', 'Company Deleted');
     }
 }
