@@ -33,8 +33,16 @@
                             <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Profile</a>
                             <a class="dropdown-item" href="#"><i class="fa fa-cog"></i>Settings</a>
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
-                            <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i>Logout</a>
+                            {{-- <li class="dropdown-divider"></li> --}}
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            <br>
                         </ul>
                     </li>
                 </ul>
@@ -54,73 +62,6 @@
                     </div>
                 </div>
                 <ul class="side-menu metismenu">
-                    {{-- <li>
-                        <a class="active" href="{{ url('admin/dashboard') }}"><i class="sidebar-item-icon fa fa-th-large"></i>
-                            <span class="nav-label">Home</span>
-                        </a>
-                    </li>
-                    <li class="heading">FEATURES</li>
-                    
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label"> About Us </span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="{{ url('admin/about/company') }}"> Corporate Profile </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/about/team') }}"> Team </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/about/award') }}"> Award </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/about/milestone') }}"> Milestone </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/about/philosophy') }}"> Philosophy </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label"> Global </span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="{{ url('admin/global/addProject') }}"> Add Project </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/global/manageProject') }}"> Manage Project </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label"> ESG </span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="{{ url('admin/esg/socialActivities') }}"> Social Activitise </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/esg/environment') }}"> Environment </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/esg/diversity') }}"> Diversity </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                            <span class="nav-label">Service </span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="{{ url('admin/service/addService') }}"> Add Service </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/service/serviceImage') }}"> Service Image </a>
-                            </li>
-                        </ul>
-                    </li> --}}
                     <li>
                         <a href="{{ url('company') }}"><i class="sidebar-item-icon fa fa-smile-o"></i>
                             <span class="nav-label"> Companies </span>
@@ -131,18 +72,6 @@
                             <span class="nav-label"> Employee </span>
                         </a>
                     </li>
-                    {{-- <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label"> Footer </span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="{{ url('admin/footer/addFooter') }}"> Add Footer </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('admin/footer/subsidiary') }}"> Add Subsidiaries </a>
-                            </li>
-                        </ul>
-                    </li> --}}
                 </ul>
             </div>
         </nav>
