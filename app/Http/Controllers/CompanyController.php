@@ -51,7 +51,7 @@ class CompanyController extends Controller
                 $data['logo'] = $fileName;
                 Company::create($data);
                 
-                return redirect()->back()->with('message', 'Company Added');
+                return redirect()->back()->with('message', 'Save Successfully.');
             }
         }
 
@@ -99,14 +99,14 @@ class CompanyController extends Controller
                 $request->file('logo')->move(public_path('_uploads'), $fileName);
                 
                 // Update company information
-                $data = $request->only(['title']);
+                $data = $request->only(['name','email','website']);
                 $data['logo'] = $fileName;
                 $company->update($data);
                 
-                return redirect()->route('company.index')->with('message', 'Award Updated');
+                return redirect()->route('company.index')->with('message', 'Update Successfully.');
             }
 
-            return redirect()->back()->with('message', 'Award Not Updated');
+            return redirect()->back()->with('message', 'Something Went Wrong');
         }
 
 
@@ -116,6 +116,6 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         $company->delete();
-        return back()->with('delete-message', 'Company Deleted');
+        return back()->with('delete-message', 'Delete Successfully.');
     }
 }

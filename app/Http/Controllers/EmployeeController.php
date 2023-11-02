@@ -42,7 +42,7 @@ class EmployeeController extends Controller
 
         //Data Store
         Employee::create($request->all());
-        return back()->with('message', 'Employee Added');
+        return back()->with('message', 'Save Successfully.');
     }
 
     /**
@@ -77,7 +77,7 @@ class EmployeeController extends Controller
 
         //Data Update
         $employee->update($request->all());
-        return redirect()->route('employee.index')->with('message', 'Employee Updated');
+        return redirect()->route('employee.index')->with('message', 'Update Successfully.');
     }
 
     /**
@@ -86,6 +86,6 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return back()->with('delete-message', 'Employee Deleted');
+        return back()->with('delete-message', 'Delete Successfully.');
     }
 }
